@@ -1,0 +1,39 @@
+<html>
+<head>
+<style>
+table, th, td{
+  border: 1px solid black;
+}
+</style>
+</head>
+<body style="background-color:MintCream">
+<h1 style="border:1px solid Green">Student Database</h1>
+<a href="{{url_for('newBook')}}">
+    <button>Add Student</button>
+</a>
+
+<table> 
+    <caption style="text-align:left">Student Records</caption>
+    <tr>
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Date of Birth</th>
+        <th>Amount Due</th>
+    </tr>
+    {% for book in books %}
+    <tr>
+        <td>{{book.id}}</td>
+        <td>{{book.first_name}}</td>
+        <td>{{book.last_name}}</td>
+        <td>{{book.dob}}</td>
+        <td>{{book.amount_due}}</td>
+    
+    <td> <a href="{{url_for('editBook', book_id = book.id )}}">Edit</a> </td>
+    <td><a href="{{url_for('deleteBook', book_id = book.id )}}" style="margin-left: 10px;">Delete</a></td>
+    </tr>
+    <br> <br>
+    {% endfor %}
+</table>
+</body>
+</html>
