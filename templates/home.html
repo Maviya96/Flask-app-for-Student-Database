@@ -1,0 +1,39 @@
+<html>
+<head>
+<style>
+table, th, td{
+  border: 1px solid black;
+}
+</style>
+</head>
+<body style="background-color:MintCream">
+<h1 style="border:1px solid Green">Student Database</h1>
+<a href="{{url_for('newStudent')}}">
+    <button>Add Student</button>
+</a>
+
+<table> 
+    <caption style="text-align:left">Student Records</caption>
+    <tr>
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Date of Birth</th>
+        <th>Amount Due</th>
+    </tr>
+    {% for stud in records %}
+    <tr>
+        <td>{{stud.id}}</td>
+        <td>{{stud.first_name}}</td>
+        <td>{{stud.last_name}}</td>
+        <td>{{stud.dob}}</td>
+        <td>{{stud.amount_due}}</td>
+    
+    <td> <a href="{{url_for('editStudent', stud_id = stud.id )}}">Edit</a> </td>
+    <td><a href="{{url_for('deleteStudent', stud_id = stud.id )}}" style="margin-left: 10px;">Delete</a></td>
+    </tr>
+    <br> <br>
+    {% endfor %}
+</table>
+</body>
+</html>

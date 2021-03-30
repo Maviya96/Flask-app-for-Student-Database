@@ -1,0 +1,13 @@
+<body style="background-color:MintCream">
+<h1 style="border:1px solid Green"> Edit the record</h1>
+<h3>Edit the Amount Due for student {{stud.first_name}}</h3>
+<form action="{{ url_for('editStudent',stud_id = stud.id)}}" method="post">
+    <div class="form-group">
+		<label for="amount_due">Amount Due:</label>
+		<input type="text" class="form-control" name="amount_due" value="{{stud.amount_due }}">
+        <button type="submit"> SAVE</button>
+        <a href='{{url_for('showStudent')}}'>
+        </a>
+    </div>
+</form>
+</body>
